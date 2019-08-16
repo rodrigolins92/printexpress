@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Pedidos</title>
+</head>
+<body>
+    <h1>Pedidos</h1>
+    <div>Adicione uma novo pedido: 
+        <form action="{{ url_for('add')}}" method="POST">
+            <input type='text' name='todoitem'>
+            <input type='submit' value='Adicionar item'>
+        </form>
+    </div>
+    <div>
+    <hr>
+        <form>
+            <h3>Incompletos:</h3>
+            <ul>
+                {% for pedido in incomplete %}
+                <li style='font-size: 15pt'>{{pedido.id}} - {{pedido.text}} <a href="{{ url_for('complete', id=pedido.id) }}">[Completo]</a></li>
+                {% endfor %}
+            </ul>
+            <h3>Completos:</h3>
+            <ul>
+                    {% for pedido in complete %}
+                     <li style='font-size: 15pt'>{{pedido.id}} - {{pedido.text}} <a href="{{ url_for('delete', id=pedido.id) }}">X</a></li>
+                    {% endfor %}
+                </ul>
+        </form>
+    </div>
+</body>
+</html>
