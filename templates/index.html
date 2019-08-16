@@ -8,23 +8,23 @@
     <h1>Pedidos</h1>
     <div>Adicione uma novo pedido: 
         <form action="{{ url_for('add')}}" method="POST">
-            <input type='text' name='todoitem'>
+            <input type='text' name='pedidos'>
             <input type='submit' value='Adicionar item'>
         </form>
     </div>
     <div>
     <hr>
         <form>
-            <h3>Incompletos:</h3>
+            <h3>Pedidos ativos:</h3>
             <ul>
-                {% for pedido in incomplete %}
-                <li style='font-size: 15pt'>{{pedido.id}} - {{pedido.text}} <a href="{{ url_for('complete', id=pedido.id) }}">[Completo]</a></li>
+                {% for pedido in pedidos_ativos %}
+                <li style='font-size: 15pt'>{{pedido.id}} - {{pedido.description}}<a href="{{ url_for('complete', id=pedido.id) }}">[Concluir]</a></li>
                 {% endfor %}
             </ul>
-            <h3>Completos:</h3>
+            <h3>Pedidos concluídos:</h3>
             <ul>
-                    {% for pedido in complete %}
-                     <li style='font-size: 15pt'>{{pedido.id}} - {{pedido.text}} <a href="{{ url_for('delete', id=pedido.id) }}">X</a></li>
+                    {% for pedido in pedidos_concluidos %}
+                     <li style='font-size: 15pt'>{{pedido.id}} - {{pedido.description}} <a href="{{ url_for('delete', id=pedido.id) }}">X</a></li>
                     {% endfor %}
                 </ul>
         </form>
