@@ -5,7 +5,6 @@ backports.functools-lru-cache==1.5
 beautifulsoup4==4.7.1
 botocore==1.12.178
 bs4==0.0.1
-CDDB==1.4
 certifi==2019.3.9
 chardet==3.0.4
 Cheetah==2.4.4
